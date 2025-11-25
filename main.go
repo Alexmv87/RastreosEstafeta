@@ -31,19 +31,21 @@ func main() {
 }
 
 func buscarGuia(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
 
+	if r.Method != http.MethodPost {
 		http.Error(w, "Método no permitido", http.StatusMethodNotAllowed)
 		return
 	}
+
 	body, err := io.ReadAll(r.Body)
+
 	if err != nil {
 		http.Error(w, "error leyendo body: "+err.Error(), http.StatusBadRequest)
 		return
 	}
 
 	var guias []string
-	// Intentar decodificar directamente como array JSON: ["a","b"]
+
 	if err := json.Unmarshal(body, &guias); err == nil {
 		// concurrencia limitada
 		//maxConcurrent := 5
