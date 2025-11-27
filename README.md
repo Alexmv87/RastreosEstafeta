@@ -7,6 +7,7 @@ Aplicación pequeña en Go que consulta el historial de seguimiento de guías en
 
 **Endpoint**
 - `POST /buscarGuia` : recibe datos en JSON y devuelve un array con `TrackingResponse`.
+- `Get /buscarGuia/{numero de guia o código de rastro}` : devuelve un array con `TrackingResponse`.
 
 Formatos de entrada soportados
 - Array JSON puro: `["8015905005552600009651","OTRA_GUIA"]`
